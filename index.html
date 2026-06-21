@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Body Sync Analyzer</title>
+
+<style>
+
+body{
+    font-family:sans-serif;
+    margin:20px;
+}
+
+.controls{
+    margin-bottom:20px;
+}
+
+#canvas{
+    width:800px;
+    max-width:100%;
+    border:1px solid #ccc;
+}
+
+#video{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Body Sync Analyzer demo</h2>
+
+<div class="controls">
+
+<button id="cameraBtn">
+カメラ開始
+</button>
+
+<input
+type="file"
+id="videoFile"
+accept="video/*">
+
+<button id="downloadBtn">
+CSV保存
+</button>
+
+</div>
+
+<video
+id="video"
+playsinline
+muted>
+</video>
+
+<canvas id="canvas"></canvas>
+
+<script type="module" src="./app.js"></script>
+
+</body>
+
+</html>
