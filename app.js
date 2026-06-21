@@ -1,7 +1,8 @@
 import {
     PoseLandmarker,
     FilesetResolver,
-    DrawingUtils
+    DrawingUtils,
+    POSE_CONNECTIONS
 }
 from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
 
@@ -126,9 +127,23 @@ function drawResults(result){
 
     for(const landmarks of result.landmarks){
 
+        // ランドマーク間を線で繋ぐ（骨の描画）
+        drawingUtils.drawConnectors(
+            landmarks,
+            POSE_CONNECTIONS,
+            {
+                color:"#0f0",
+                lineWidth:2
+            }
+        );
+
+        // ランドマークのノードを描画
         drawingUtils.drawLandmarks(
             landmarks,
-            {radius:3}
+            {
+                color:"#f0f",
+                radius:3
+            }
         );
 
         saveLandmarks(landmarks);
